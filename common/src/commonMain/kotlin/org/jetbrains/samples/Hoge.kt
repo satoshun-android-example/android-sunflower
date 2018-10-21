@@ -1,3 +1,5 @@
 package org.jetbrains.samples
 
-class Hoge
+class Hoge(
+  val user: String
+)
