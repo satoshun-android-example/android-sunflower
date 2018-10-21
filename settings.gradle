@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+rootProject.name = 'sunflower-app'
+
+enableFeaturePreview('GRADLE_METADATA')
+
 include ':common'
 
 include ':android'

@@ -14,9 +14,19 @@
  * limitations under the License.
  */
 
+buildscript {
+  dependencies {
+    classpath "com.android.tools.build:gradle:$gradleVersion"
+  }
+  repositories {
+    google()
+  }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
@@ -47,6 +57,8 @@ android {
 }
 
 dependencies {
+  implementation project(':common')
+
   kapt "androidx.room:room-compiler:$rootProject.roomVersion"
   kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
