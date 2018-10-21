@@ -14,8 +14,34 @@
  * limitations under the License.
  */
 
-include ':common'
+buildscript {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap' }
+  }
 
-include ':android'
-include ':android:app'
+  dependencies {
+    classpath "com.android.tools.build:gradle:$gradleVersion"
+    classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+  }
+}
 
+plugins {
+  id "com.diffplug.gradle.spotless" version "3.13.0"
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'http://dl.bintray.com/kotlin/kotlin-eap' }
+  }
+}
+
+spotless {
+  kotlin {
+    target "**/*.kt"
+    ktlint(ktlintVersion)
+  }
+}
